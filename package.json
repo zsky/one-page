@@ -1,0 +1,19 @@
+{
+  "name": "one-page",
+  "version": "1.0.0",
+  "description": "Collect day one journals to one page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "day",
+    "one",
+    "journals"
+  ],
+  "author": "zsky",
+  "license": "ISC",
+  "dependencies": {
+    "xml2js": "^0.4.17"
+  }
+}
