@@ -1,3 +1,5 @@
 const { getJournals } = require('./journals');
 
-getJournals();
+getJournals(rootNode => {
+    console.log('Finish')
+});
