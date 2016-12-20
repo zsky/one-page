@@ -14,6 +14,7 @@
   "author": "zsky",
   "license": "ISC",
   "dependencies": {
+    "koa": "^1.2.4",
     "markdown-it": "^8.2.2",
     "xml2js": "^0.4.17"
   }

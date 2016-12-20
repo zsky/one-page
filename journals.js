@@ -20,9 +20,14 @@ exports.getJournals = function (callback) {
 
         files.forEach(filename => {
 
+            if(filename.indexOf('DS_Store') > -1) {
+                dealCount();
+                return;
+            }
+
             readFilePromise('./docs/' + filename).then(parserPromise).then(journal => {
 
-                let content = md.render(journal.note.body[0]);
+                let content = md.render(journal.plist.dict[0].string[0]);
 
                 let headerRe = /<h(\d)>(.*)<\/h\d>/;
 
@@ -33,7 +38,7 @@ exports.getJournals = function (callback) {
                     if(textCache) {
                         if(!currentNode.contents) currentNode.contents = [];
                         currentNode.contents.push({
-                            to: journal.note.to[0],
+                            time: journal.plist.dict[0].date[0],
                             content: textCache
                         })
                         textCache = '';
@@ -67,7 +72,7 @@ exports.getJournals = function (callback) {
                 dealCount();
 
             }).catch(err => {
-                console.log('err:', err);
+                console.log('err:', filename, err);
                 dealCount();
             })
         })
